@@ -166,6 +166,47 @@
     .pipeline-step p { margin: 0; color: var(--muted); font-size: .76rem; line-height: 1.55; }
     .pipeline-status { position: absolute; right: 14px; top: 16px; color: var(--teal); font: 600 .6rem/1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .06em; }
 
+    .orbit-console { overflow: hidden; border: 1px solid var(--line-strong); border-radius: var(--radius); background: var(--surface); }
+    .orbit-main { display: grid; grid-template-columns: minmax(300px, .76fr) minmax(0, 1.24fr); }
+    .orbit-control { padding: 24px; border-right: 1px solid var(--line); }
+    .control-label { color: var(--faint); font: 600 .66rem/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .08em; }
+    .mode-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 18px; }
+    .mode-tab { min-height: 44px; border: 1px solid var(--line); border-radius: 7px; background: #0c1117; color: var(--muted); font-size: .78rem; cursor: pointer; transition: border-color .18s ease, background .18s ease, color .18s ease; }
+    .mode-tab:hover { color: var(--text); border-color: var(--line-strong); }
+    .mode-tab[aria-checked="true"] { border-color: rgba(242, 198, 109, .48); background: var(--gold-soft); color: var(--gold); }
+    .mode-tab:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+    .mode-readout { min-height: 174px; margin-top: 14px; padding: 18px; border: 1px solid var(--line); border-radius: 8px; background: #0c1117; }
+    .mode-readout strong { display: block; font-size: 1.25rem; font-weight: 620; }
+    .mode-readout p { margin: 10px 0 0; color: var(--muted); font-size: .86rem; }
+    .mode-signals { display: block; margin-top: 26px; color: var(--gold); font: 600 .66rem/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .06em; }
+    .orbit-event { padding: 24px; }
+    .event-state { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .event-state strong { color: var(--teal); font: 600 .68rem/1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .07em; }
+    .event-state strong::before { content: "●"; margin-right: 7px; font-size: .55rem; }
+    .sensor-rails { display: grid; gap: 9px; margin-top: 26px; }
+    .sensor-rail { display: grid; grid-template-columns: 58px minmax(0, 1fr) 72px; align-items: center; gap: 12px; color: var(--faint); font: 600 .62rem/1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .06em; }
+    .rail-line { position: relative; height: 1px; background: var(--line-strong); }
+    .rail-line::after { content: ""; position: absolute; right: 34%; top: -3px; width: 7px; height: 7px; background: var(--gold); }
+    .capture-window { margin-top: 28px; }
+    .window-labels { display: grid; grid-template-columns: 1fr auto 1fr; align-items: end; color: var(--faint); font: 600 .66rem/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .window-labels span:nth-child(2) { color: var(--gold); text-align: center; }
+    .window-labels span:last-child { text-align: right; }
+    .window-track { display: grid; grid-template-columns: 1fr 10px 1fr; gap: 4px; align-items: center; margin-top: 10px; }
+    .window-track i { height: 7px; background: rgba(106, 182, 178, .32); }
+    .window-track b { width: 10px; height: 16px; background: var(--gold); box-shadow: 0 0 18px rgba(242, 198, 109, .3); }
+    .event-card { display: grid; grid-template-columns: 94px minmax(0, 1fr) auto; align-items: center; gap: 16px; margin-top: 28px; padding: 15px; border: 1px solid var(--line); border-radius: 8px; background: #0c1117; }
+    .event-time { color: var(--gold); font: 600 .8rem/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .event-copy strong { display: block; font-size: .9rem; }
+    .event-copy span { display: block; margin-top: 3px; color: var(--muted); font-size: .72rem; }
+    .local-badge { color: var(--teal); font: 600 .62rem/1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .08em; }
+    .orbit-features { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
+    .orbit-feature { min-height: 148px; padding: 20px; }
+    .orbit-feature + .orbit-feature { border-left: 1px solid var(--line); }
+    .orbit-feature span { color: var(--faint); font: 600 .64rem/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .08em; }
+    .orbit-feature h3 { margin: 28px 0 7px; font-size: .96rem; font-weight: 600; }
+    .orbit-feature p { margin: 0; color: var(--muted); font-size: .78rem; line-height: 1.55; }
+    .blueprint-note { margin: 13px 0 0; color: var(--faint); font-size: .74rem; }
+
     footer { padding: 30px 0 calc(30px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); }
     .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
     .footer-note { color: var(--faint); font: 500 .68rem/1.6 ui-monospace, SFMono-Regular, Menlo, monospace; text-align: right; }
@@ -181,6 +222,8 @@
       .pipeline-step:nth-child(even) { border-left: 1px solid var(--line); }
       .pipeline-step:nth-child(n+3) { border-top: 1px solid var(--line); }
       .pipeline-step:last-child { grid-column: 1 / -1; }
+      .orbit-main { grid-template-columns: 1fr; }
+      .orbit-control { border-right: 0; border-bottom: 1px solid var(--line); }
     }
 
     @media (max-width: 680px) {
@@ -211,6 +254,16 @@
       .pipeline-step + .pipeline-step, .pipeline-step:nth-child(even) { border-left: 0; border-top: 1px solid var(--line); }
       .pipeline-step:last-child { grid-column: auto; }
       .pipeline-step h3 { margin: 20px 0 5px; }
+      .orbit-control, .orbit-event { padding: 18px; }
+      .mode-readout { min-height: 0; }
+      .event-state { align-items: flex-start; flex-direction: column; gap: 7px; }
+      .sensor-rail { grid-template-columns: 48px minmax(0, 1fr) 62px; gap: 8px; }
+      .event-card { grid-template-columns: 1fr auto; }
+      .event-time { grid-column: 1 / -1; }
+      .orbit-features { grid-template-columns: 1fr; }
+      .orbit-feature { min-height: 0; padding: 17px 18px; }
+      .orbit-feature + .orbit-feature { border-left: 0; border-top: 1px solid var(--line); }
+      .orbit-feature h3 { margin-top: 16px; }
       .footer-row { align-items: flex-start; flex-direction: column; }
       .footer-note { text-align: left; }
     }
@@ -218,7 +271,7 @@
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       .hero-copy, .run-panel { animation: none; }
-      .primary { transition: none; }
+      .primary, .mode-tab { transition: none; }
     }
   </style>
 </head>
@@ -238,7 +291,7 @@
       <div class="hero-copy">
         <p class="eyebrow">Moment selection / Run 01</p>
         <h1>从 6.78 秒输入中，留下 <span class="accent">2 秒</span>有依据的片段。</h1>
-        <p class="lead">声音给出线索，AI 定位值得留下的时刻，再由 FFmpeg 精确剪出前后片段。点击即可看到这次演示捕捉到的 2 秒高光。</p>
+        <p class="lead">带时间的测试文本给出线索，AI 定位值得留下的时刻，再由 FFmpeg 精确剪出前后片段。点击即可看到这次演示捕捉到的 2 秒高光。</p>
         <div class="actions">
           <button class="primary" id="play-demo" type="button">播放演示片段</button>
           <span class="hero-meta">NO LOGIN · STATIC DEMO · 00:02</span>
@@ -307,6 +360,55 @@
       </div>
     </section>
 
+    <section>
+      <div class="shell">
+        <div class="section-head">
+          <div><p class="section-kicker">03 / Orbit interaction</p><h2>从软件闭环，到一台可见、可按、可物理停录的设备。</h2></div>
+          <p class="section-intro">PRODUCT INTERACTION BLUEPRINT · 旋钮选择采集策略，多信号共同触发；设备只把事件前后的短时缓存变成长期记忆。</p>
+        </div>
+        <div class="orbit-console">
+          <div class="orbit-main">
+            <div class="orbit-control">
+              <span class="control-label">THREE-MODE DIAL / 采集策略</span>
+              <div class="mode-tabs" role="radiogroup" aria-label="Orbit 三档模式">
+                <button class="mode-tab" type="button" role="radio" aria-checked="true" data-mode="memory">记忆</button>
+                <button class="mode-tab" type="button" role="radio" aria-checked="false" tabindex="-1" data-mode="work">工作</button>
+                <button class="mode-tab" type="button" role="radio" aria-checked="false" tabindex="-1" data-mode="travel">旅行</button>
+              </div>
+              <div class="mode-readout" aria-live="polite">
+                <strong id="mode-name">记忆模式</strong>
+                <p id="mode-description">优先关注笑声、掌声、多人互动和主动标记。</p>
+                <span class="mode-signals" id="mode-signals">LAUGHTER · APPLAUSE · PEOPLE · BUTTON</span>
+              </div>
+            </div>
+            <div class="orbit-event">
+              <div class="event-state"><span class="control-label">MULTI-SIGNAL EVENT / 短时缓存</span><strong>WAITING FOR MOMENT</strong></div>
+              <div class="sensor-rails" aria-label="声音、动作和环境信号汇入事件判断">
+                <div class="sensor-rail"><span>SOUND</span><i class="rail-line"></i><span>语义 / 事件</span></div>
+                <div class="sensor-rail"><span>MOTION</span><i class="rail-line"></i><span>IMU 变化</span></div>
+                <div class="sensor-rail"><span>LIGHT</span><i class="rail-line"></i><span>场景变化</span></div>
+              </div>
+              <div class="capture-window">
+                <div class="window-labels"><span>−5S · 已缓存</span><span>EVENT</span><span>+5S · 等待补全</span></div>
+                <div class="window-track" aria-hidden="true"><i></i><b></b><i></i></div>
+              </div>
+              <div class="event-card">
+                <div class="event-time">18:42:16</div>
+                <div class="event-copy"><strong id="event-title">大家突然笑成一团</strong><span id="event-trigger">触发：笑声 + 多人互动 · 保留 18:42:11—18:42:21</span></div>
+                <span class="local-badge">LOCAL</span>
+              </div>
+            </div>
+          </div>
+          <div class="orbit-features">
+            <article class="orbit-feature"><span>01 / PHYSICAL SHUTTER</span><h3>推上滑盖，真正停止感知</h3><p>机械遮挡镜头，并通过微动开关切断摄像头与麦克风通路。</p></article>
+            <article class="orbit-feature"><span>02 / VISIBLE + TACTILE</span><h3>旁人看得见，佩戴者感受得到</h3><p>灯光公开采集状态；片段保存后，用一次短震完成无屏确认。</p></article>
+            <article class="orbit-feature"><span>03 / LOCAL FIRST</span><h3>事件先留在本地</h3><p>入选片段写入 microSD，再按用户选择同步为可搜索的事件卡片。</p></article>
+          </div>
+        </div>
+        <p class="blueprint-note">Orbit 为围绕当前软件闭环设计的硬件交互蓝图；页面中的授权画面用于无声演示，不代表穿戴设备实拍。</p>
+      </div>
+    </section>
+
   </main>
 
   <footer>
@@ -334,6 +436,42 @@
     reel.addEventListener('play', () => { playButton.textContent = '正在播放'; });
     reel.addEventListener('pause', () => { if (!reel.ended) playButton.textContent = '继续播放'; });
     reel.addEventListener('ended', () => { playButton.textContent = '重新播放'; });
+
+    const modeContent = {
+      memory: { name: '记忆模式', description: '优先关注笑声、掌声、多人互动和主动标记。', signals: 'LAUGHTER · APPLAUSE · PEOPLE · BUTTON', title: '大家突然笑成一团', trigger: '触发：笑声 + 多人互动 · 保留 18:42:11—18:42:21' },
+      work: { name: '工作模式', description: '优先关注明确结论、白板内容、待办事项和重点标记。', signals: 'DECISION · WHITEBOARD · ACTION · BUTTON', title: 'Demo 第一次成功跑通', trigger: '触发：成功语义 + 主动标记 · 保留 16:07:02—16:07:12' },
+      travel: { name: '旅行模式', description: '优先关注路牌、菜单、建筑细节和新场景变化。', signals: 'SIGN · MENU · LANDMARK · SCENE', title: '第一次看见海边日落', trigger: '触发：场景变化 + 主动标记 · 保留 19:21:33—19:21:43' }
+    };
+    const modeTabs = [...document.querySelectorAll('.mode-tab')];
+    const modeName = document.getElementById('mode-name');
+    const modeDescription = document.getElementById('mode-description');
+    const modeSignals = document.getElementById('mode-signals');
+    const eventTitle = document.getElementById('event-title');
+    const eventTrigger = document.getElementById('event-trigger');
+
+    function selectMode(tab) {
+      const content = modeContent[tab.dataset.mode];
+      modeTabs.forEach((item) => {
+        item.setAttribute('aria-checked', item === tab ? 'true' : 'false');
+        item.tabIndex = item === tab ? 0 : -1;
+      });
+      modeName.textContent = content.name;
+      modeDescription.textContent = content.description;
+      modeSignals.textContent = content.signals;
+      eventTitle.textContent = content.title;
+      eventTrigger.textContent = content.trigger;
+    }
+    modeTabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => selectMode(tab));
+      tab.addEventListener('keydown', (event) => {
+        if (!['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+        event.preventDefault();
+        const direction = event.key === 'ArrowRight' ? 1 : -1;
+        const next = modeTabs[(index + direction + modeTabs.length) % modeTabs.length];
+        next.focus();
+        selectMode(next);
+      });
+    });
   </script>
 </body>
 </html>
