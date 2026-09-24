@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#090c11">
+  <meta name="theme-color" content="#ffffff">
   <meta name="referrer" content="no-referrer">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; media-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="description" content="Highlight：从带时间的语音线索中找出值得保留的瞬间，并生成高光片段、时间线和今日合集。">
   <title>Highlight · AI 人生高光记录器</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23090c11'/%3E%3Cpath d='M8 34h11l5-15 10 30 6-18h16' fill='none' stroke='%23f2c66d' stroke-width='5' stroke-linecap='square' stroke-linejoin='miter'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23ffffff'/%3E%3Cpath d='M8 34h11l5-15 10 30 6-18h16' fill='none' stroke='%23336c7c' stroke-width='5' stroke-linecap='square' stroke-linejoin='miter'/%3E%3C/svg%3E">
   <style>
     :root {
       color-scheme: dark;
@@ -273,6 +273,181 @@
       .hero-copy, .run-panel { animation: none; }
       .primary, .mode-tab { transition: none; }
     }
+
+    /* Personal-site visual system: white paper, editorial hierarchy, restrained teal. */
+    :root {
+      color-scheme: light;
+      --bg: #ffffff;
+      --surface: #ffffff;
+      --surface-raised: #fafbfa;
+      --line: #e8e9e9;
+      --line-strong: #dce2e2;
+      --text: #282c30;
+      --muted: #666b70;
+      --faint: #8b9296;
+      --gold: #336c7c;
+      --gold-soft: #f2f6f5;
+      --teal: #42665d;
+      --blue: #336c7c;
+      --highlight: #fffc66;
+      --heading: "Iowan Old Style", "Palatino Linotype", "Songti SC", "STSong", Georgia, serif;
+      --radius: 5px;
+    }
+    html { scroll-padding-top: 28px; }
+    body { background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.8; }
+    ::selection { color: #242424; background: var(--highlight); }
+    a { text-decoration: none; transition: color .16s ease; }
+    a:hover { color: var(--gold); }
+    .shell { width: min(976px, calc(100% - 56px)); }
+
+    .topbar-wrap { position: static; border-color: var(--line); background: #fff; backdrop-filter: none; }
+    .topbar { min-height: 75px; }
+    .brand { font-size: 16px; font-weight: 500; letter-spacing: .14em; }
+    .brand-mark { width: 22px; height: 22px; color: var(--gold); }
+    .system-state { gap: 26px; color: var(--muted); font: 400 12px/1.4 inherit; letter-spacing: 0; }
+    .system-state a { position: relative; padding: 12px 0; }
+    .system-state a:first-child { color: var(--gold); }
+    .system-state a:first-child::after { content: ""; position: absolute; right: 0; bottom: 5px; left: 0; height: 1px; background: var(--gold); }
+
+    .hero { min-height: 0; grid-template-columns: minmax(0, .95fr) minmax(440px, 1.05fr); align-items: start; gap: 50px; padding: 66px 0 62px; }
+    .hero-copy { padding-top: 25px; animation-duration: .36s; }
+    .eyebrow, .section-kicker { margin-bottom: 14px; color: var(--muted); font: 400 10px/1.7 inherit; letter-spacing: 2px; }
+    h1 { max-width: 520px; font-family: var(--heading); font-size: clamp(2.6rem, 4.4vw, 3.55rem); font-weight: 600; line-height: 1.28; letter-spacing: -.025em; }
+    .accent { color: var(--gold); background: linear-gradient(transparent 70%, var(--highlight) 70%); }
+    .lead { max-width: 535px; margin-top: 20px; color: #555e63; font-size: 14px; line-height: 1.95; }
+    .actions { flex-wrap: wrap; gap: 16px; margin-top: 25px; }
+    .primary { min-height: 44px; border: 0; border-radius: 4px; padding: 0 17px; color: #fff; background: var(--text); font-size: 12px; transition: transform .16s ease, background .16s ease; }
+    .primary:hover { background: var(--gold); }
+    .hero-meta { color: var(--muted); font-size: 10px; }
+
+    .run-panel { border-color: var(--line-strong); border-radius: 5px; background: #fff; box-shadow: 0 7px 22px rgba(36, 53, 49, .05); animation-duration: .36s; }
+    .panel-head { min-height: 44px; padding: 0 15px; background: #fafbfa; }
+    .panel-title, .verified { font-size: 10px; }
+    .run-body { grid-template-columns: minmax(190px, .78fr) minmax(210px, 1.22fr); }
+    .media-column { padding: 13px; }
+    .video-stage { max-height: 420px; border-radius: 3px; background: #111; }
+    .clip-badge { color: #fff; background: rgba(40, 44, 48, .82); font-size: 9px; }
+    .source-note { margin-top: 9px; font-size: 10px; }
+    .source-note a { color: var(--gold); text-decoration: underline; }
+    .metric-row { grid-template-columns: 82px minmax(0, 1fr); min-height: 49px; padding: 8px 15px; }
+    .metric-row dt { font-size: 10px; }
+    .metric-row dd { font-size: 12px; }
+    .metric-row dd.gold { color: var(--gold); font-size: 14px; }
+    .evidence-box { padding: 17px 15px; border-color: #eceb9a; background: #fffef0; }
+    .evidence-label { color: #6a682e; font-size: 10px; }
+    .evidence-box blockquote { color: var(--text); font-family: var(--heading); font-size: 17px; line-height: 1.6; }
+    .evidence-box p { font-size: 11px; }
+
+    section { padding: 53px 0 0; border-top: 0; scroll-margin-top: 28px; }
+    .section-head { position: relative; grid-template-columns: minmax(240px, .82fr) minmax(0, 1.18fr); gap: 40px; align-items: end; margin-bottom: 24px; padding-bottom: 13px; border-bottom: 1px solid var(--line); }
+    .section-head::after { content: ""; position: absolute; bottom: -1px; left: 0; width: 35px; height: 2px; background: #8b9c97; }
+    .section-head .section-kicker { margin-bottom: 7px; }
+    h2 { font-family: var(--heading); font-size: 27px; font-weight: 600; line-height: 1.45; letter-spacing: -.02em; }
+    .section-intro { font-size: 13px; line-height: 1.9; }
+
+    .trace { border: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); border-radius: 0; background: #fff; }
+    .trace-quote { grid-template-columns: 110px minmax(0, 1fr); gap: 24px; padding: 24px 20px; background: #fafbfa; }
+    .trace-time { color: var(--gold); font-size: 14px; }
+    .trace-quote blockquote { font-family: var(--heading); font-size: clamp(18px, 2vw, 22px); line-height: 1.65; }
+    .trace-item { min-height: 128px; padding: 18px 20px; }
+    .trace-item span { font-size: 10px; }
+    .trace-item strong { margin-top: 22px; font-family: var(--heading); font-size: 17px; }
+    .trace-item p { font-size: 12px; }
+    .trace-note { font-size: 11px; }
+
+    .pipeline { border: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); border-radius: 0; }
+    .pipeline-step { min-height: 164px; background: #fff; }
+    .pipeline-num { color: var(--gold); font-size: 10px; }
+    .pipeline-step h3 { margin-top: 40px; font-family: var(--heading); font-size: 17px; }
+    .pipeline-step p { font-size: 11px; line-height: 1.8; }
+    .pipeline-status { color: var(--teal); font-size: 9px; }
+
+    .orbit-console { border-color: var(--line-strong); border-radius: 5px; background: #fff; box-shadow: 0 7px 22px rgba(36, 53, 49, .035); }
+    .orbit-control, .orbit-event { padding: 23px; }
+    .control-label { font-size: 10px; font-weight: 500; }
+    .mode-tab { border-color: var(--line); border-radius: 4px; color: var(--muted); background: #fff; font-size: 12px; }
+    .mode-tab:hover { color: var(--gold); border-color: #c8d5d9; }
+    .mode-tab[aria-checked="true"] { border-color: #dce5e4; color: var(--teal); background: #f2f6f5; }
+    .mode-readout { min-height: 164px; border-radius: 4px; background: #fafbfa; }
+    .mode-readout strong { font-family: var(--heading); font-size: 20px; }
+    .mode-readout p { font-size: 12px; }
+    .mode-signals { color: var(--gold); font-size: 10px; }
+    .event-state strong { color: var(--teal); font-size: 10px; }
+    .sensor-rail { color: var(--muted); font-size: 9px; }
+    .rail-line { background: #dce5e4; }
+    .rail-line::after { border-radius: 50%; background: var(--gold); }
+    .window-labels { font-size: 10px; }
+    .window-labels span:nth-child(2) { color: var(--gold); }
+    .window-track i { height: 6px; background: #dce5e4; }
+    .window-track b { width: 8px; height: 15px; background: var(--gold); box-shadow: none; }
+    .event-card { border-radius: 4px; background: #fafbfa; }
+    .event-time { color: var(--gold); font-size: 12px; }
+    .event-copy strong { font-family: var(--heading); font-size: 15px; }
+    .event-copy span { font-size: 10px; }
+    .local-badge { padding: 2px 7px; border: 1px solid #dce5e4; border-radius: 4px; color: var(--teal); background: #f2f6f5; font-size: 9px; }
+    .orbit-feature h3 { font-family: var(--heading); font-size: 16px; }
+    .orbit-feature p, .blueprint-note { font-size: 11px; line-height: 1.8; }
+
+    footer { max-width: 976px; margin: 55px auto 0; padding: 0 28px calc(25px + env(safe-area-inset-bottom)); border-top: 0; }
+    .footer-row { width: 100%; padding: 27px 0 17px; border-top: 1px solid var(--line); }
+    .footer-note { font-size: 10px; }
+    :is(.lead, .section-intro, .trace-item p, .pipeline-step p, .orbit-feature p, .mode-readout p) { border-radius: 3px; outline: 5px solid transparent; transition: background-color .16s ease, outline-color .16s ease; }
+    @media (hover: hover) and (pointer: fine) { :is(.lead, .section-intro, .trace-item p, .pipeline-step p, .orbit-feature p, .mode-readout p):hover { color: #242424; background: var(--highlight); outline-color: var(--highlight); } }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; gap: 34px; padding-top: 48px; }
+      .hero-copy { max-width: 720px; padding-top: 0; }
+    }
+    @media (max-width: 700px) {
+      .shell { width: calc(100% - 44px); }
+      .topbar { min-height: 67px; }
+      .brand { font-size: 14px; }
+      .system-state { gap: 18px; font-size: 11px; }
+      .system-state a:nth-child(2) { display: none; }
+      .hero { gap: 28px; padding: 36px 0 40px; }
+      h1 { font-size: clamp(2.1rem, 10vw, 2.65rem); line-height: 1.3; }
+      .lead { font-size: 14px; }
+      .actions { align-items: stretch; flex-direction: column; gap: 9px; margin-top: 21px; }
+      .primary { width: 100%; }
+      .hero-meta { text-align: center; }
+      .run-body { grid-template-columns: 1fr; }
+      .media-column { border-right: 0; border-bottom: 1px solid var(--line); }
+      .video-stage { max-height: none; }
+      .metric-row { min-height: 48px; }
+      section { padding-top: 40px; }
+      .section-head { grid-template-columns: 1fr; gap: 11px; margin-bottom: 21px; }
+      h2 { font-size: 24px; }
+      .trace-quote { grid-template-columns: 1fr; gap: 8px; padding: 18px; }
+      .trace-grid { grid-template-columns: 1fr; }
+      .trace-item { min-height: 0; padding: 16px 18px; }
+      .trace-item + .trace-item { border-left: 0; border-top: 1px solid var(--line); }
+      .trace-item strong { margin-top: 11px; }
+      .pipeline { grid-template-columns: 1fr; }
+      .pipeline-step { min-height: 0; padding: 16px 18px; }
+      .pipeline-step + .pipeline-step, .pipeline-step:nth-child(even) { border-left: 0; border-top: 1px solid var(--line); }
+      .pipeline-step:last-child { grid-column: auto; }
+      .pipeline-step h3 { margin: 19px 0 5px; }
+      .orbit-main { grid-template-columns: 1fr; }
+      .orbit-control { border-right: 0; border-bottom: 1px solid var(--line); }
+      .orbit-control, .orbit-event { padding: 18px; }
+      .mode-readout { min-height: 0; }
+      .event-state { align-items: flex-start; flex-direction: column; gap: 7px; }
+      .sensor-rail { grid-template-columns: 48px minmax(0, 1fr) 62px; gap: 8px; }
+      .event-card { grid-template-columns: 1fr auto; }
+      .event-time { grid-column: 1 / -1; }
+      .orbit-features { grid-template-columns: 1fr; }
+      .orbit-feature { min-height: 0; padding: 17px 18px; }
+      .orbit-feature + .orbit-feature { border-left: 0; border-top: 1px solid var(--line); }
+      .orbit-feature h3 { margin-top: 15px; }
+      footer { margin-top: 43px; padding-right: 22px; padding-left: 22px; }
+      .footer-row { align-items: flex-start; flex-direction: column; }
+      .footer-note { text-align: left; }
+    }
+    @media (max-width: 374px) {
+      .shell { width: calc(100% - 36px); }
+      .system-state a:nth-child(3) { display: none; }
+      .window-labels { font-size: 9px; }
+    }
   </style>
 </head>
 <body>
@@ -282,12 +457,12 @@
         <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M2 17h6l3-9 6 18 4-11h9" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"/></svg>
         HIGHLIGHT
       </div>
-      <div class="system-state"><span class="desktop-only">HACKATHON MVP</span><span class="online">HIGHLIGHT READY</span></div>
+      <nav class="system-state" aria-label="页面导航"><a href="#demo">演示结果</a><a href="#decision">判断依据</a><a href="#orbit">硬件蓝图</a></nav>
     </div>
   </header>
 
   <main>
-    <div class="shell hero">
+    <div class="shell hero" id="demo">
       <div class="hero-copy">
         <p class="eyebrow">Moment selection / Run 01</p>
         <h1>从 6.78 秒输入中，留下 <span class="accent">2 秒</span>有依据的片段。</h1>
@@ -326,7 +501,7 @@
       </article>
     </div>
 
-    <section>
+    <section id="decision">
       <div class="shell">
         <div class="section-head">
           <div><p class="section-kicker">01 / Decision trace</p><h2>为什么保存这一段</h2></div>
@@ -344,7 +519,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="pipeline">
       <div class="shell">
         <div class="section-head">
           <div><p class="section-kicker">02 / Pipeline</p><h2>当前软件闭环</h2></div>
@@ -360,7 +535,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="orbit">
       <div class="shell">
         <div class="section-head">
           <div><p class="section-kicker">03 / Orbit interaction</p><h2>从软件闭环，到一台可见、可按、可物理停录的设备。</h2></div>
