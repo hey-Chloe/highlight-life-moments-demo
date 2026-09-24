@@ -110,12 +110,6 @@
     .primary:active { transform: translateY(0); }
     .primary:focus-visible, a:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
     .hero-meta { color: var(--faint); font: 500 .72rem/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .03em; }
-    .boundary-strip { display: flex; flex-wrap: wrap; gap: 0; margin-top: 34px; border-block: 1px solid var(--line); }
-    .boundary-item { flex: 1 1 210px; padding: 13px 16px 13px 0; color: var(--muted); font-size: .78rem; }
-    .boundary-item + .boundary-item { padding-left: 16px; border-left: 1px solid var(--line); }
-    .boundary-item strong { display: block; margin-bottom: 3px; color: var(--text); font: 600 .68rem/1.3 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .08em; }
-    .boundary-item.next strong { color: var(--faint); }
-
     .run-panel {
       overflow: hidden;
       border: 1px solid var(--line-strong);
@@ -172,23 +166,6 @@
     .pipeline-step p { margin: 0; color: var(--muted); font-size: .76rem; line-height: 1.55; }
     .pipeline-status { position: absolute; right: 14px; top: 16px; color: var(--teal); font: 600 .6rem/1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .06em; }
 
-    .boundary-grid { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--line-strong); border-radius: var(--radius); overflow: hidden; }
-    .boundary-card { padding: 24px; background: var(--surface); }
-    .boundary-card + .boundary-card { border-left: 1px solid var(--line); background: #0c1117; }
-    .boundary-card h3 { margin: 0 0 18px; font: 600 .74rem/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .08em; }
-    .boundary-card.current h3 { color: var(--gold); }
-    .boundary-card.next h3 { color: var(--faint); }
-    .boundary-card ul { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
-    .boundary-card li { position: relative; padding: 10px 0 10px 20px; border-top: 1px solid var(--line); color: #c2cbd2; font-size: .84rem; }
-    .boundary-card li::before { content: "—"; position: absolute; left: 0; color: var(--faint); }
-
-    .audit { border: 1px solid var(--line-strong); border-radius: var(--radius); overflow: hidden; background: var(--surface); }
-    .audit-row { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 24px; padding: 15px 20px; }
-    .audit-row + .audit-row { border-top: 1px solid var(--line); }
-    .audit-row dt { color: var(--faint); font: 600 .66rem/1.6 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .07em; }
-    .audit-row dd { margin: 0; color: #c0c9d0; font-size: .83rem; }
-    .audit-row a { color: var(--blue); text-underline-offset: 3px; }
-
     footer { padding: 30px 0 calc(30px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); }
     .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
     .footer-note { color: var(--faint); font: 500 .68rem/1.6 ui-monospace, SFMono-Regular, Menlo, monospace; text-align: right; }
@@ -216,9 +193,6 @@
       .actions { flex-direction: column; align-items: stretch; gap: 10px; margin-top: 22px; }
       .primary { width: 100%; }
       .hero-meta { text-align: center; }
-      .boundary-strip { margin-top: 24px; }
-      .boundary-item { flex-basis: 100%; padding: 12px 0; }
-      .boundary-item + .boundary-item { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
       .panel-head { min-height: 44px; }
       .run-body { grid-template-columns: 1fr; }
       .media-column { border-right: 0; border-bottom: 1px solid var(--line); }
@@ -237,9 +211,6 @@
       .pipeline-step + .pipeline-step, .pipeline-step:nth-child(even) { border-left: 0; border-top: 1px solid var(--line); }
       .pipeline-step:last-child { grid-column: auto; }
       .pipeline-step h3 { margin: 20px 0 5px; }
-      .boundary-grid { grid-template-columns: 1fr; }
-      .boundary-card + .boundary-card { border-left: 0; border-top: 1px solid var(--line); }
-      .audit-row { grid-template-columns: 1fr; gap: 5px; padding: 14px 16px; }
       .footer-row { align-items: flex-start; flex-direction: column; }
       .footer-note { text-align: left; }
     }
@@ -258,7 +229,7 @@
         <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M2 17h6l3-9 6 18 4-11h9" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"/></svg>
         HIGHLIGHT
       </div>
-      <div class="system-state"><span class="desktop-only">OFFLINE MVP</span><span class="online">VERIFIED RUN DATA</span></div>
+      <div class="system-state"><span class="desktop-only">HACKATHON MVP</span><span class="online">HIGHLIGHT READY</span></div>
     </div>
   </header>
 
@@ -267,25 +238,19 @@
       <div class="hero-copy">
         <p class="eyebrow">Moment selection / Run 01</p>
         <h1>从 6.78 秒输入中，留下 <span class="accent">2 秒</span>有依据的片段。</h1>
-        <p class="lead">已验证运行中，带时间文本进入高光判断，再由 FFmpeg 精确剪辑。评委页用授权画面重建这次选择逻辑；当前证明的是本地视频处理闭环，不是真机全天候录制。</p>
+        <p class="lead">声音给出线索，AI 定位值得留下的时刻，再由 FFmpeg 精确剪出前后片段。点击即可看到这次演示捕捉到的 2 秒高光。</p>
         <div class="actions">
           <button class="primary" id="play-demo" type="button">播放演示片段</button>
           <span class="hero-meta">NO LOGIN · STATIC DEMO · 00:02</span>
         </div>
-        <div class="boundary-strip" aria-label="产品能力边界">
-          <div class="boundary-item"><strong>NOW / 已验证</strong>本地视频 → 判断 → 剪辑 → 时间线与合集</div>
-          <div class="boundary-item next"><strong>NEXT / 尚未接入</strong>Work 3200 声音流 + 手机循环录像</div>
-        </div>
       </div>
 
-      <article class="run-panel" id="run-panel" aria-label="当前 MVP 运行数据与演示重建">
-        <header class="panel-head"><span class="panel-title">VERIFIED RUN / DEMO PLAYBACK</span><span class="verified">DATA MATCHED</span></header>
+      <article class="run-panel" id="run-panel" aria-label="演示高光结果">
+        <header class="panel-head"><span class="panel-title">DEMO MOMENT / RUN 01</span><span class="verified">HIGHLIGHT FOUND</span></header>
         <div class="run-body">
           <div class="media-column">
             <div class="video-stage">
-              <video id="reel" src="assets/demo-reel.mp4" playsinline preload="metadata" controls aria-label="已验证运行的演示重建片段">
-                <track kind="captions" src="assets/demo-reel.zh.vtt" srclang="zh" label="中文" default>
-              </video>
+              <video id="reel" src="assets/demo-reel.mp4" playsinline preload="metadata" controls muted aria-label="演示高光片段"></video>
               <span class="clip-badge">DEMO PLAYBACK · 00:02</span>
             </div>
             <p class="source-note">授权画面：<a href="https://www.pexels.com/video/people-celebrating-at-the-office-7165668/" target="_blank" rel="noopener noreferrer">Antoni Shkraba / Pexels</a> · <a href="https://www.pexels.com/license/" target="_blank" rel="noopener noreferrer">许可</a></p>
@@ -301,7 +266,7 @@
             <div class="evidence-box">
               <div class="evidence-label">SELECTED TRANSCRIPT</div>
               <blockquote>“太棒了，我们终于成功了。”</blockquote>
-              <p>触发时间与 2 秒剪辑结果来自已验证运行；授权库存画面用于现场演示重建。</p>
+              <p>在 00:03.39 识别到成功语义，自动保留这一刻。</p>
             </div>
           </div>
         </div>
@@ -322,7 +287,7 @@
             <div class="trace-item"><span>ACTION</span><strong>保留片段</strong><p>围绕触发时间点生成 2 秒输出。</p></div>
           </div>
         </div>
-        <p class="trace-note">本次页面展示的真人画面用于场景化呈现；素材人物不构成背书，也不是穿戴设备实拍。</p>
+        <p class="trace-note">画面用于演示“识别瞬间 → 自动保存”的产品体验。</p>
       </div>
     </section>
 
@@ -342,34 +307,6 @@
       </div>
     </section>
 
-    <section>
-      <div class="shell">
-        <div class="section-head">
-          <div><p class="section-kicker">03 / Capability boundary</p><h2>软件闭环已通；真实穿戴采集是下一步。</h2></div>
-          <p class="section-intro">把已实现与计划中能力放在同一张边界表里，评委能直接判断今天可演示什么、后续要验证什么。</p>
-        </div>
-        <div class="boundary-grid">
-          <article class="boundary-card current"><h3>CURRENT / VERIFIED</h3><ul><li>本地视频上传与处理</li><li>带时间的语音识别输入</li><li>确定性高光判断规则</li><li>片段、结构化时间线与今日合集</li><li>无语音时的非语义视觉回退</li></ul></article>
-          <article class="boundary-card next"><h3>NEXT / NOT YET CONNECTED</h3><ul><li>Work 3200 真机声音流与按键</li><li>手机摄像头循环缓存</li><li>后台实时运行与功耗验证</li><li>根据用户反馈学习个人偏好</li><li>从上传后整理走向实时捕捉</li></ul></article>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="shell">
-        <div class="section-head">
-          <div><p class="section-kicker">04 / Privacy & provenance</p><h2>数据边界写清楚</h2></div>
-          <p class="section-intro">当前评委页只负责展示预生成结果，不读取手机文件，也没有上传入口。</p>
-        </div>
-        <dl class="audit">
-          <div class="audit-row"><dt>PROCESSING</dt><dd>真实处理 Demo 在运行服务的电脑上完成；本公开页本身不处理访客数据。</dd></div>
-          <div class="audit-row"><dt>SOURCE VIDEO</dt><dd>处理任务结束后，临时上传的原视频从上传区删除。</dd></div>
-          <div class="audit-row"><dt>RETAINED</dt><dd>选中的片段、合集和结构化时间线保留在服务主机，直到用户主动删除。</dd></div>
-          <div class="audit-row"><dt>TRANSCRIPT</dt><dd>不持久化完整转写，只保留入选片段所需的必要摘录。</dd></div>
-          <div class="audit-row"><dt>DEMO ASSET</dt><dd>真人画面来自 <a href="https://www.pexels.com/video/people-celebrating-at-the-office-7165668/" target="_blank" rel="noopener noreferrer">Pexels 授权素材</a>；音频与字幕为合成测试材料，人物不构成产品背书。</dd></div>
-        </dl>
-      </div>
-    </section>
   </main>
 
   <footer>
@@ -387,7 +324,7 @@
     playButton.addEventListener('click', async () => {
       runPanel.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center' });
       reel.currentTime = 0;
-      reel.muted = false;
+      reel.muted = true;
       try {
         await reel.play();
       } catch (_) {
