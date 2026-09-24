@@ -394,7 +394,7 @@
               </div>
               <div class="event-card">
                 <div class="event-time">18:42:16</div>
-                <div class="event-copy"><strong id="event-title">大家突然笑成一团</strong><span id="event-trigger">触发：笑声 + 多人互动 · 保留 18:42:11—18:42:21</span></div>
+                <div class="event-copy" aria-live="polite"><strong id="event-title">大家突然笑成一团</strong><span id="event-trigger">触发：笑声 + 多人互动 · 保留 18:42:11—18:42:21</span></div>
                 <span class="local-badge">LOCAL</span>
               </div>
             </div>
@@ -464,10 +464,12 @@
     modeTabs.forEach((tab, index) => {
       tab.addEventListener('click', () => selectMode(tab));
       tab.addEventListener('keydown', (event) => {
-        if (!['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+        if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End'].includes(event.key)) return;
         event.preventDefault();
-        const direction = event.key === 'ArrowRight' ? 1 : -1;
-        const next = modeTabs[(index + direction + modeTabs.length) % modeTabs.length];
+        const nextIndex = event.key === 'Home' ? 0
+          : event.key === 'End' ? modeTabs.length - 1
+          : (index + (['ArrowRight', 'ArrowDown'].includes(event.key) ? 1 : -1) + modeTabs.length) % modeTabs.length;
+        const next = modeTabs[nextIndex];
         next.focus();
         selectMode(next);
       });
